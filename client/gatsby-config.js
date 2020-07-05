@@ -1,3 +1,4 @@
+require("dotenv").config();
 module.exports = {
   siteMetadata: {
     title: `CopyMarketCat`,
@@ -36,7 +37,14 @@ module.exports = {
         // is it hosted on wordpress.com, or self-hosted?
         hostingWPCOM: true,
         // does your site use the Advanced Custom Fields Plugin?
-        useACF: false
+        useACF: false,
+        verboseOutput: false,
+        auth: {
+          wpcom_app_clientSecret: process.env.WORDPRESS_CLIENT_SECRET,
+          wpcom_app_clientId: process.env.WORDPRESS_CLIENT_ID,
+          wpcom_user: process.env.WORDPRESS_USER,
+          wpcom_pass: process.env.WORDPRESS_PASSWORD,
+        }
       }
     }
     // this (optional) plugin enables Progressive Web App + Offline functionality
